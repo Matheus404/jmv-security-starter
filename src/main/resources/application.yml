@@ -9,7 +9,6 @@ spring:
     password: root
 
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: create-drop
     show-sql: true
@@ -25,6 +24,7 @@ spring:
         web-allow-others: true
 
 jwt:
-  secret-key: ${SECRET_KEY}
+  # Chave de desenvolvimento (NAO usar em producao). Sobrescreva definindo a variavel de ambiente SECRET_KEY.
+  secret-key: ${SECRET_KEY:9UxwUiFcP4yyOpw9Q2uL5Hev5v99DWNxsmyDmG7v0Si9BBRpwfSFoUVEYpQQC5r4jYUSulbTiNHkRgU3B+dOCg==}
   expiration-time: ${EXPIRATION:1800000} # 30 minutos em milissegundos
   refresh-expiration-time: ${REFRESH-TOKEN-EXPIRATION:604800000}  # 7 dias em milissegundos
